@@ -5,12 +5,170 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Complete a Form</title>
 	<link rel="stylesheet" href="styles/main.css">
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			max-width: 760px;
+			margin: 2rem auto;
+			padding: 0 1rem;
+			line-height: 1.4;
+		}
+
+		h1 {
+			margin-bottom: 1rem;
+		}
+
+		form {
+			background: #f7f7f7;
+			padding: 1.5rem;
+			border: 1px solid #ccc;
+			border-radius: 8px;
+		}
+
+		fieldset {
+			margin-bottom: 1.25rem;
+			padding: 1rem;
+			border: 1px solid #bbb;
+		}
+
+		legend {
+			font-weight: bold;
+			padding: 0 .5rem;
+		}
+
+		.form-row {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: .9rem;
+		}
+
+		label {
+			font-weight: bold;
+			margin-bottom: .35rem;
+		}
+
+		input,
+		select,
+		textarea {
+			padding: .6rem;
+			font-size: 1rem;
+			border: 2px solid #999;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+
+		.contact-info input:invalid,
+		.geographic-info input:invalid {
+			border-color: #c62828;
+		}
+
+		.contact-info input:valid,
+		.geographic-info input:valid {
+			border-color: #2e7d32;
+		}
+
+		textarea {
+			min-height: 110px;
+			resize: vertical;
+		}
+
+		.button-row {
+			display: flex;
+			gap: 1rem;
+			margin-top: 1rem;
+		}
+
+		.btn {
+			padding: .75rem 1.4rem;
+			border: none;
+			border-radius: 4px;
+			font-size: 1rem;
+			cursor: pointer;
+			transition: background-color 0.2s ease, transform 0.2s ease;
+			color: #fff;
+		}
+
+		.btn:hover {
+			transform: translateY(-1px);
+			opacity: 0.92;
+		}
+
+		.btn-submit {
+			background-color: #1565c0;
+		}
+
+		.btn-reset {
+			background-color: #6d4c41;
+		}
+	</style>
 </head>
 
 <body>
 <h1>Please complete our survey</h1>
 <form action="confirmation.html" method="post">
-    
+    <fieldset class="contact-info">
+        <legend>Contact information</legend>
+
+        <div class="form-row">
+            <label for="first-name">First name</label>
+            <input type="text" id="first-name" name="first-name" accesskey="f" required autofocus>
+        </div>
+
+        <div class="form-row">
+            <label for="last-name">Last name</label>
+            <input type="text" id="last-name" name="last-name" accesskey="l" required>
+        </div>
+
+        <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" accesskey="e" required>
+        </div>
+
+        <div class="form-row">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" accesskey="p" required>
+        </div>
+    </fieldset>
+
+    <fieldset class="geographic-info">
+        <legend>Geographic information</legend>
+
+        <div class="form-row">
+            <label for="state">State</label>
+            <input type="text" id="state" name="state" accesskey="s" pattern="[A-Za-z]{2}" maxlength="2" required>
+        </div>
+
+        <div class="form-row">
+            <label for="zip">Zip code</label>
+            <input type="text" id="zip" name="zip" accesskey="z" pattern="[0-9]{5}" maxlength="5" required>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Source</legend>
+
+        <div class="form-row">
+            <label for="source">How did you hear about us?</label>
+            <select id="source" name="source">
+                <option value="">Please select one</option>
+                <option value="friend">Friend</option>
+                <option value="search-engine">Search engine</option>
+                <option value="social-media">Social media</option>
+                <option value="advertisement">Advertisement</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <label for="comments">Comments</label>
+            <textarea id="comments" name="comments"></textarea>
+        </div>
+    </fieldset>
+
+    <div class="button-row">
+        <button type="submit" class="btn btn-submit">Submit</button>
+        <button type="reset" class="btn btn-reset">Reset</button>
+    </div>
 </form>
 </body>
 </html>
