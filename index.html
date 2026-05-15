@@ -14,8 +14,22 @@
 			line-height: 1.4;
 		}
 
-		h1 {
+		.header {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
 			margin-bottom: 1rem;
+		}
+
+		.header img {
+			width: 70px;
+			height: auto;
+		}
+
+		h1 {
+			margin: 0;
+			color: blue;
+			text-transform: uppercase;
 		}
 
 		form {
@@ -104,7 +118,10 @@
 </head>
 
 <body>
-<h1>Please complete our survey</h1>
+<div class="header">
+    <img src="shape_up_logo.png" alt="Shape Up logo">
+    <h1>Shape Up</h1>
+</div>
 <form action="confirmation.html" method="post">
     <fieldset class="contact-info">
         <legend>Contact information</legend>
